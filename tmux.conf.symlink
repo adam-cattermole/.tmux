@@ -95,6 +95,8 @@ bind Tab last-window        # move to last active window
 # toggle mouse
 bind m run "cut -c3- ~/.tmux.conf | sh -s _toggle_mouse"
 
+# toggle synchronize-panes
+bind u run "cut -c3- ~/.tmux.conf | sh -s _toggle_synchronize_panes"
 
 # -- urlview -------------------------------------------------------------------
 
@@ -281,6 +283,20 @@ run 'cut -c3- ~/.tmux.conf | sh -s _apply_configuration'
 #
 #   tmux set -g mouse $new
 # }
+#
+# _toggle_synchronize_panes() {
+#   old=$(tmux show -gv synchronize-panes)
+#   new=""
+#
+#   if [ "$old" = "on" ]; then
+#     new="off"
+#   else
+#     new="on"
+#   fi
+#
+#   tmux set -g synchronize-panes $new
+# }
+#
 #
 # _battery_info() {
 #   count=0
